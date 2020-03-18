@@ -1,0 +1,3 @@
+---
+buildpack: https://github.com/cloudfoundry/nginx-buildpack.git#v1.1.6
+memory: 64M

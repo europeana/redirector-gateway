@@ -1,0 +1,36 @@
+{
+  "name": "@europeana/redirector-gateway",
+  "version": "0.0.1",
+  "description": "Redirector gateway using NGINX on Cloud Foundry",
+  "main": "build.js",
+  "scripts": {
+    "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "lint:fix": "eslint --fix --ext .js --ignore-path .gitignore .",
+    "build": "node build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "^12",
+    "npm": "^6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/europeana/redirector-gateway.git"
+  },
+  "keywords": [
+    "nginx",
+    "cloud foundry",
+    "http",
+    "redirection",
+    "gateway"
+  ],
+  "contributors": [
+    "Richard Doe <richard.doe@europeana.eu>"
+  ],
+  "private": true,
+  "license": "EUPL-1.2",
+  "homepage": "https://github.com/europeana/redirector-gateway#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0"
+  }
+}
