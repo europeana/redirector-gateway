@@ -58,10 +58,19 @@ const proxyBlock = (proxy) => {
   });
 };
 
+const wildcardLast = (rules) => {
+  const index = rules.findIndex((rule) => rule.from === '*');
+  if (index !== -1) {
+    const wildcardRule = rules.splice(index, 1)[0];
+    rules.push(wildcardRule);
+  }
+  return rules;
+};
+
 const serverConf = servers.map((server) => {
   return serverBlock(server, () => {
-    const redirectBlocks = (server.redirect || []).map((redirect) => redirectBlock(redirect)).join('');
-    const proxyBlocks = (server.proxy || []).map((proxy) => proxyBlock(proxy, server.name)).join('');
+    const redirectBlocks = wildcardLast(server.redirect || []).map((redirect) => redirectBlock(redirect)).join('');
+    const proxyBlocks = wildcardLast(server.proxy || []).map((proxy) => proxyBlock(proxy, server.name)).join('');
     return redirectBlocks + '\n' + proxyBlocks;
   });
 }).join('');
